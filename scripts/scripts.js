@@ -1,18 +1,48 @@
-// JavaScript code to fetch and display social media feeds goes here
-// You'll need to use APIs for Instagram and TikTok to fetch their respective feeds
-// You can use libraries like Fetch API or Axios to make the API calls
+/*---- Navbar Dropdown function ---- */
+function navbarDropdown() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 
-// Example of how to integrate an Instagram feed using Fetch API
-const instagramFeed = document.querySelector(".social-feed");
+const text = `Outlet Network is both a platform and a community 
+that brings together Toronto creatives in an attempt to bridge 
+the gap between artists and Toronto’s creative community.`;
 
-fetch("https://api.instagram.com/v1/users/self/media/recent/?access_token=YOUR_ACCESS_TOKEN")
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((post) => {
-      const postElement = document.createElement("div");
-      postElement.innerHTML = `<img src="${post.images.standard_resolution.url}" alt="${post.caption.text}">
-      <p>${post.caption.text}</p>`;
-      instagramFeed.appendChild(postElement);
+const typewriterText = document.getElementById("typewriter-text");
+let charIndex = 0;
+
+function typeWriter() {
+    if (charIndex < text.length) {
+        typewriterText.innerHTML += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 50); // Adjust the typing speed here (milliseconds)
+    }
+}
+
+function openArtistSeries(artist) {
+  window.location.href = `${artist}.html`;
+}
+
+/* --------- GALLERY ARTIST SERIES ---------- */
+
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+const gallery = document.getElementById("gallery");
+
+prevBtn.addEventListener("click", () => {
+    gallery.scrollBy({
+        left: -200, // Adjust the scroll amount as needed
+        behavior: "smooth",
     });
-  })
-  .catch((error) => console.log(error));
+});
+
+nextBtn.addEventListener("click", () => {
+    gallery.scrollBy({
+        left: 200, // Adjust the scroll amount as needed
+        behavior: "smooth",
+    });
+});

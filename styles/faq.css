@@ -1,0 +1,43 @@
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+.faq-section {
+    max-width: 70%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 1.5%;
+    border-radius: 10px;
+}
+
+.faq-title {
+    font-size:4em;
+}
+
+.faq-list {
+    list-style: none;
+    padding: 0;
+}
+
+.faq-list li {
+    margin: 20px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.question {
+    font-weight: bold;
+    font-size:1.8em;
+}
+
+.answer {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 25px;
+}
